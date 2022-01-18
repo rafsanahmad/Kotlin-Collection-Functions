@@ -253,3 +253,65 @@ Output:
 {+9199XXXX1111=Alan, +9199XXXX2222=Bob, +9199XXXX3333=Joe, +9199XXXX4444=Jenny}
 ```
 
+## `Zip, Unzip` Collections
+
+```
+fun zipExample() {
+        val listOne = listOf(1, 2, 3, 4, 5)
+        val listTwo = listOf("a", "b", "c", "d", "e", "f")
+        println(listOne zip listTwo) // [(1, a), (2, b), (3, c), (4, d), (5, e)]
+
+        //zipWithNext return a list of pairs. The elements of the pair will be the adjacent elements of the collection.
+        val list = listOf(1, 2, 3, 4, 5)
+        println(list.zipWithNext()) // [(1, 2), (2, 3), (3, 4), (4, 5)]
+
+        //Unzip
+        val list2 = listOf("Alan" to 8, "Bob" to 10, "Joe" to 4, "Jenny" to 2)
+        val (players, devSkills) = list2.unzip()
+        println(players) // [Alan, Bob, Joe, Jenny]
+        println(devSkills) // [8, 10, 4, 2]
+    }
+```
+
+Output:
+```
+[(1, a), (2, b), (3, c), (4, d), (5, e)]
+[(1, 2), (2, 3), (3, 4), (4, 5)]
+[Alan, Bob, Joe, Jenny]
+[8, 10, 4, 2]
+```
+
+## `filter` - Filter a collection based on some condition
+
+```
+fun filterExample() {
+        val list = listOf(1, 2, 3, 4, 5, 6, 7, 8)
+        val filteredList = list.filter { it % 2 == 0 }
+        println(filteredList) // [2, 4, 6, 8]
+
+        //Similarly, you can filter the collection based on the index of elements by using filterIndexed.
+
+        //If you want to store the filtered elements in some collection, then you can use the filterIndexedTo:
+
+        val list2 = listOf(1, 2, 3, 4, 5, 6, 7, 8)
+        val filteredList2 = mutableListOf<Int>()
+        list2.filterIndexedTo(filteredList2) { index, i -> list[index] % 2 == 0 }
+        println(filteredList2) // [2, 4, 6, 8]
+
+        //You can also find the elements that are instances of a specified type in a collection by using
+        // filterIsInstance.
+
+        val mixedList = listOf(1, 2, 3, "one", "two", 4, "three", "four", 5, 6, "five", 7)
+        val strList = mixedList.filterIsInstance<String>()
+        println(strList) // [one, two, three, four, five]
+    }
+```
+
+Output:
+```
+[2, 4, 6, 8]
+[2, 4, 6, 8]
+[one, two, three, four, five]
+```
+
+## 
