@@ -6,6 +6,7 @@ The Kotlin standard library offers a broad variety of functions for performing o
  - [distinct](#distinct) 
  - [joinToString](#jointostring)
  - [reduce](#reduce)
+ - [fold](#fold)
  - [all](#all)
  - [single](#single)
  - [find](#find)
@@ -14,7 +15,7 @@ The Kotlin standard library offers a broad variety of functions for performing o
  - [Changing type of collection to other](#changing-type-of-collection-to-other)
  - [associateBy](#associateby)
  - [Zip, Unzip](#zip-unzip)
- - [filter](#filter)
+ - [filter, filterNot](#filter-filternot)
  - [union](#union)
  - [intersect](#intersect)
  - [map](#map)
@@ -116,6 +117,28 @@ fun reduceExample() {
         val result = numList.reduce { result, item ->
             result + item
         }
+        println(result) // 15
+    }
+```
+
+Output:
+```
+15
+```
+
+## `fold`
+Transform a collection into a single result
+
+```
+fun foldExample() {
+        /*The difference between fold() & reduce() is that fold() takes an initial value and uses it as the
+        accumulated value on the first step, whereas the first step of reduce() uses the first and the second
+        elements as operation arguments on the first step.*/
+        println("Inside Fold")
+        val numList = listOf(1, 2, 3, 4, 5)
+        val result = numList.fold(0, { result, item ->
+            result + item
+        })
         println(result) // 15
     }
 ```
@@ -322,14 +345,18 @@ Output:
 [8, 10, 4, 2]
 ```
 
-## `filter` 
+## `filter, filterNot` 
 Filter a collection based on some condition
 
 ```
 fun filterExample() {
         val list = listOf(1, 2, 3, 4, 5, 6, 7, 8)
-        val filteredList = list.filter { it % 2 == 0 }
-        println(filteredList) // [2, 4, 6, 8]
+        val evenList = list.filter { it % 2 == 0 }
+        println(evenList) // [2, 4, 6, 8]
+
+        //Filter Not
+        val oddList = list.filterNot { it % 2 == 0 }
+        println(oddList) // [1, 3, 5, 7]
 
         //Similarly, you can filter the collection based on the index of elements by using filterIndexed.
 
@@ -352,6 +379,7 @@ fun filterExample() {
 Output:
 ```
 [2, 4, 6, 8]
+[1, 3, 5, 7]
 [2, 4, 6, 8]
 [one, two, three, four, five]
 ```
