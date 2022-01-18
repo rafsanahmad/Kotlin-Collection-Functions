@@ -512,4 +512,77 @@ Output:
 [5, 4, 3, 2, 1]
 ```
 
+## `retainAll` - Keep the specified elements only
+
+```
+fun retainExample() {
+        val listOne = mutableListOf(1, 2, 3, 3, 4, 5, 6)
+        val listTwo = listOf(1, 2, 3, 3, 4, 5, 6)
+        val listThree = listOf(1, 2, 3, 3, 4, 5, 7)
+        println(listOne.retainAll(listTwo)) // false
+        println(listOne.retainAll(listThree)) // true
+        println(listOne) // [1, 2, 3, 3, 4, 5]
+        //you can use removeAll to remove all the elements of one collection that are present in another
+        // collection.
+    }
+```
+
+Output:
+```
+false
+true
+[1, 2, 3, 3, 4, 5]
+```
+
+## `removeFirst, removeLast, removeAll` - Remove element in collection
+
+```
+fun removeExample() {
+        val listOne = mutableListOf(1, 2, 3, 3, 4, 5, 6)
+        val listTwo = listOf(1, 2, 3)
+        val listThree = listOf(6, 7)
+        println(listOne.removeFirst())  //Prints 1
+        println(listOne.removeLast())   //Prints 6
+        println(listOne) // Prints [2,3,3,4,5]
+        println(listOne.removeAll(listTwo)) //Prints True
+        println(listOne) // Prints [4,5]
+        println(listOne.removeAll(listThree)) //Prints False
+        println(listOne) // Prints [4,5]
+    }
+```
+
+Output:
+```
+1
+6
+[2, 3, 3, 4, 5]
+true
+[4, 5]
+false
+[4, 5]
+```
+
+## `partition` - Split array into two parts based on some condition
+
+```
+fun partitionExample() {
+        val users = listOf(
+            User(1, "Alan", true),
+            User(2, "Bob", true),
+            User(3, "Joe", false),
+            User(4, "Jenny", false)
+        )
+
+        val (webDevs, nonWebDevs) = users.partition { it.webDev }
+        println(webDevs) // [User(id=1, name=Alan, webDev=true), User(id=2, name=Bob, webDev=true)]
+        println(nonWebDevs) // [User(id=3, name=Joe, webDev=false), User(id=4, name=Jenny, webDev=false)]
+    }
+```
+
+Output:
+```
+[User(id=1, name=Alan, webDev=true, mobileDev=false), User(id=2, name=Bob, webDev=true, mobileDev=false)]
+[User(id=3, name=Joe, webDev=false, mobileDev=false), User(id=4, name=Jenny, webDev=false, mobileDev=false)]
+```
+
 ## 
