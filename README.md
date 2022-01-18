@@ -157,4 +157,99 @@ Output:
 User(id=1, name=Alan, webDev=false, mobileDev=false)
 ```
 
-## 
+## `chunked` - Break your list into multiple sublists of smaller size
+
+```
+fun chunkedExample() {
+        val numList = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        val chunkedLists = numList.chunked(3)
+        print(chunkedLists) // [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+        println()
+    }
+```
+
+Output:
+```
+[[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+```
+
+## `copyInto` - Making copies of the array
+
+```
+fun copyArray() {
+        val arrayOne = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        val arrayTwo = arrayOf(11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
+        arrayOne.copyInto(
+            destination = arrayTwo,
+            destinationOffset = 2,
+            startIndex = 0,
+            endIndex = 4
+        )
+        arrayTwo.forEach { print("$it ") } // 11 12 1 2 3 4 17 18 19 20
+        println()
+    }
+```
+
+Output:
+```
+11 12 1 2 3 4 17 18 19 20 
+```
+
+## Changing type of collection to other
+
+```
+fun changeTypeExample() {
+        var uIntArray = UIntArray(5) { 1U }
+        val intArray = uIntArray.toIntArray()
+        intArray[0] = 0
+        println(uIntArray.toList()) // [1, 1, 1, 1, 1]
+        println(intArray.toList()) // [0, 1, 1, 1, 1]
+    }
+```
+
+Output:
+```
+[1, 1, 1, 1, 1]
+[0, 1, 1, 1, 1]
+```
+
+## `associateBy` - Associating the data using some key
+
+```
+fun associateByExample() {
+        val contactList = listOf(
+            Contact("Alan", "+9199XXXX1111"),
+            Contact("Bob", "+9199XXXX2222"),
+            Contact("Joe", "+9199XXXX3333"),
+            Contact("Jenny", "+9199XXXX4444")
+        )
+
+        val phoneNumberToContactMap = contactList.associateBy { it.phoneNumber }
+        println(phoneNumberToContactMap)
+        // Map with key: phoneNumber and value: Contact
+        // {
+        //     +9199XXXX1111=Contact(name=Alan, phoneNumber=+9199XXXX1111),
+        //     +9199XXXX2222=Contact(name=Bob, phoneNumber=+9199XXXX2222),
+        //     +9199XXXX3333=Contact(name=Joe, phoneNumber=+9199XXXX3333),
+        //     +9199XXXX4444=Contact(name=Jenny, phoneNumber=+9199XXXX4444)
+        // }
+
+        val phoneNumberToContactMap2 = contactList.associateBy({ it.phoneNumber }, { it.name })
+        println(phoneNumberToContactMap2)
+        // Map with key: phoneNumber and value: name
+        // {
+        //     +9199XXXX1111=Alan,
+        //     +9199XXXX2222=Bob,
+        //     +9199XXXX3333=Joe,
+        //     +9199XXXX4444=Jenny}
+        // }
+    }
+```
+
+Output:
+```
+{+9199XXXX1111=Contact(name=Alan, phoneNumber=+9199XXXX1111), +9199XXXX2222=Contact(name=Bob, phoneNumber=+9199XXXX2222), +9199XXXX3333=Contact(name=Joe, phoneNumber=+9199XXXX3333), +9199XXXX4444=Contact(name=Jenny, phoneNumber=+9199XXXX4444)}
+
+{+9199XXXX1111=Alan, +9199XXXX2222=Bob, +9199XXXX3333=Joe, +9199XXXX4444=Jenny}
+```
+
