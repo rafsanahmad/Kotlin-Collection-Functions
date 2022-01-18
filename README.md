@@ -2,6 +2,19 @@
 
 The Kotlin standard library offers a broad variety of functions for performing operations on collections. This includes simple operations, such as getting or adding elements, as well as more complex ones including search, sorting, filtering, transformations, and so on.
 
+# Contents
+ - [distinct](#distinct) 
+ - [joinToString](#jointostring)
+ - [reduce](#reduce)
+ - [all](#all)
+ - [single](#single)
+ - [find](#find)
+ - [chunked](#chunked)
+ - [copyInto](#copyinto)
+ - [Changing type of collection to other](#changing-type-of-collection-to-other)
+ - [associateBy](#associateby)
+ 
+
 ## Helper Class
 ```
 data class User(
@@ -18,7 +31,8 @@ class Items(val items: List<String>)
 data class Contact(val name: String, val phoneNumber: String)
 ```
 
-## `distinct` - Retreive Distinct Items from Collection
+## `distinct` 
+Retreive Distinct Items from Collection
 ```
 fun distinctExample() {
         // Maintain the original order of items
@@ -44,7 +58,8 @@ Output:
 [Jones, Joe, Bob, Alan, David]
 ```
 
-## `joinToString` - Convert an array or list to a string
+## `joinToString` 
+Convert an array or list to a string
 
 ```
 fun joinToStringExample() {
@@ -73,7 +88,8 @@ Output:
 Kotlin has many collection functions like: distinct, map, isEmpty, etc and they are awesome.
 ```
 
-## `Reduce` - Transform a collection into a single result
+## `Reduce` 
+Transform a collection into a single result
 
 ```
 fun reduceExample() {
@@ -91,7 +107,8 @@ Output:
 15
 ```
 
-## `All` - Find if all elements are satisfying a particular condition
+## `All` 
+Find if all elements are satisfying a particular condition
 
 ```
 fun allExample() {
@@ -116,7 +133,8 @@ true
 false
 ```
 
-## `Single` - Find a single element based on a certain condition
+## `Single` 
+Find a single element based on a certain condition
 
 ```
 fun singleExample() {
@@ -137,7 +155,8 @@ Output:
 User(id=3, name=Joe, webDev=false, mobileDev=false)
 ```
 
-## `Find` - Find a particular element based on a certain condition
+## `Find` 
+Find a particular element based on a certain condition
 
 ```
 fun findExample() {
@@ -157,7 +176,8 @@ Output:
 User(id=1, name=Alan, webDev=false, mobileDev=false)
 ```
 
-## `chunked` - Break your list into multiple sublists of smaller size
+## `chunked` 
+Break your list into multiple sublists of smaller size
 
 ```
 fun chunkedExample() {
@@ -173,7 +193,8 @@ Output:
 [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
 ```
 
-## `copyInto` - Making copies of the array
+## `copyInto` 
+Making copies of the array
 
 ```
 fun copyArray() {
@@ -213,7 +234,8 @@ Output:
 [0, 1, 1, 1, 1]
 ```
 
-## `associateBy` - Associating the data using some key
+## `associateBy` 
+Associating the data using some key
 
 ```
 fun associateByExample() {
