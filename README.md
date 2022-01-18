@@ -30,8 +30,8 @@ The Kotlin standard library offers a broad variety of functions for performing o
  - [sum()](#sum)
  - [sumBy](#sumby)
  - [maxOrNull, minOrNull](#maxornull-minornull)
- - [map](#map)
- - [map](#map)
+ - [maxByOrNull, minByOrNull](#maxbyornull-minbyornull)
+ - [maxWithOrNull](#maxwithornull)
 
 ## Helper Class
 ```
@@ -737,7 +737,8 @@ Output:
 1.99
 ```
 
-## `maxByOrNull, minByOrNull` - Find max or min element based on custom property
+## `maxByOrNull, minByOrNull` 
+Find max or min element based on custom property
 
 ```
 fun maxMinByExample() {
@@ -760,7 +761,8 @@ Product(name=A, quantity=10, price=6.9)
 Product(name=C, quantity=30, price=1.05)
 ```
 
-## `maxWithOrNull` - Find first element having the largest value according to the provided comparator
+## `maxWithOrNull` 
+Find first element having the largest value according to the provided comparator
 
 ```
 fun maxWithExample() {
