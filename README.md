@@ -13,7 +13,25 @@ The Kotlin standard library offers a broad variety of functions for performing o
  - [copyInto](#copyinto)
  - [Changing type of collection to other](#changing-type-of-collection-to-other)
  - [associateBy](#associateby)
- 
+ - [Zip, Unzip](#zip-unzip)
+ - [filter](#filter)
+ - [union](#union)
+ - [intersect](#intersect)
+ - [map](#map)
+ - [flatMap](#flatmap)
+ - [binarySearch](#binarysearch)
+ - [groupBy](#groupby)
+ - [sorted, sortedDescending](#sorted-sorteddescending)
+ - [sortedBy](#sortedby)
+ - [reversed, asReversed](#reversed-asreversed)
+ - [retainAll](#retainall)
+ - [removeFirst, removeLast, removeAll](#removefirst-removelast-removeall)
+ - [partition](#partition)
+ - [sum()](#sum)
+ - [sumBy](#sumby)
+ - [maxOrNull, minOrNull](#maxornull-minornull)
+ - [map](#map)
+ - [map](#map)
 
 ## Helper Class
 ```
@@ -275,7 +293,8 @@ Output:
 {+9199XXXX1111=Alan, +9199XXXX2222=Bob, +9199XXXX3333=Joe, +9199XXXX4444=Jenny}
 ```
 
-## `Zip, Unzip` Collections
+## `Zip, Unzip` 
+Zip or Unzip a Collection
 
 ```
 fun zipExample() {
@@ -303,7 +322,8 @@ Output:
 [8, 10, 4, 2]
 ```
 
-## `filter` - Filter a collection based on some condition
+## `filter` 
+Filter a collection based on some condition
 
 ```
 fun filterExample() {
@@ -336,7 +356,8 @@ Output:
 [one, two, three, four, five]
 ```
 
-## `union` - Union of collections
+## `union` 
+Union of collections
 
 ```
 fun unionExample() {
@@ -351,7 +372,8 @@ Output:
 [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
-## `intersect` - Intersection of collections
+## `intersect` 
+Intersection of collections
 
 ```
 fun intersectionExample() {
@@ -366,7 +388,8 @@ Output:
 [2, 4, 5, 6]
 ```
 
-## `map` - Map collection
+## `map` 
+Map a collection for transformation
 
 ```
 fun mapExample() {
@@ -388,7 +411,8 @@ All user ages: [1, 15, 10, 32, 14, 45, 9, 16, 18, 19, 27, 24]
 User ages that can drive: [32, 45, 16, 18, 19, 27, 24]
 ```
 
-## `flatMap` - Flatten Collection
+## `flatMap` 
+Flatten Collection
 
 ```
 fun mapFlatMapExample() {
@@ -423,7 +447,8 @@ Output:
 [a, b, c, 1, 2, 3]
 ```
 
-## `binarySearch` - Perform search in collection
+## `binarySearch` 
+Perform search in collection
 
 ```
 fun binarySearchExample() {
@@ -450,7 +475,8 @@ Array = [4, 9, 2, 19, 1, 3, 2, 6]
 Index of element 19: 3
 ```
 
-## `groupBy` - Group elements of a collection based on some condition
+## `groupBy` 
+Group elements of a collection based on some condition
 
 ```
 fun groupByExample() {
@@ -470,7 +496,8 @@ Output:
 {1=[1, 5, 9], 2=[2, 6, 10], 3=[3, 7], 0=[4, 8]}
 ```
 
-## `sorted, sortedDescending` - Sort a collection
+## `sorted, sortedDescending` 
+Sort a collection
 
 ```
 fun sortExample() {
@@ -494,7 +521,8 @@ Youngest to oldest ages: [1, 2, 3, 5, 7, 8, 9, 15, 18, 20, 25]
 Oldest to youngest ages: [25, 20, 18, 15, 9, 8, 7, 5, 3, 2, 1]
 ```
 
-## `sortedBy` - Sort Collection by custom property
+## `sortedBy` 
+Sort Collection by custom property
 
 ```
 fun sortedByExample() {
@@ -518,7 +546,8 @@ Output:
 [Product(name=C1, quantity=30, price=1.05), Product(name=B1, quantity=20, price=3.45), Product(name=D1, quantity=50, price=5.05), Product(name=A1, quantity=10, price=6.9)]
 ```
 
-## `reversed, asReversed` - Reverse a collection
+## `reversed, asReversed` 
+Reverse a collection
 
 ```
 fun reverseExample() {
@@ -534,7 +563,8 @@ Output:
 [5, 4, 3, 2, 1]
 ```
 
-## `retainAll` - Keep the specified elements only
+## `retainAll` 
+Keep the specified elements only
 
 ```
 fun retainExample() {
@@ -556,7 +586,8 @@ true
 [1, 2, 3, 3, 4, 5]
 ```
 
-## `removeFirst, removeLast, removeAll` - Remove element in collection
+## `removeFirst, removeLast, removeAll` 
+Remove element in collection
 
 ```
 fun removeExample() {
@@ -584,7 +615,8 @@ false
 [4, 5]
 ```
 
-## `partition` - Split array into two parts based on some condition
+## `partition` 
+Split array into two parts based on some condition
 
 ```
 fun partitionExample() {
@@ -607,7 +639,8 @@ Output:
 [User(id=3, name=Joe, webDev=false, mobileDev=false), User(id=4, name=Jenny, webDev=false, mobileDev=false)]
 ```
 
-## `sum()` - Calculate sum of element in collection
+## `sum()` 
+Calculate sum of element in collection
 
 ```
 fun sumExample() {
@@ -635,7 +668,8 @@ Output:
 60
 ```
 
-## `sumBy` - sum of specific field in List of Objects
+## `sumBy` 
+sum of specific field in List of Objects
 
 ```
 fun sumByExample() {
@@ -684,7 +718,8 @@ Output:
 60
 ```
 
-## `maxOrNull, minOrNull` - Find max or min element in Collection
+## `maxOrNull, minOrNull` 
+Find max or min element in Collection
 
 ```
 fun maxMinExample() {
