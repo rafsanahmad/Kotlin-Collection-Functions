@@ -662,4 +662,80 @@ Output:
 60
 ```
 
-## 
+## `maxOrNull, minOrNull` - Find max or min element in Collection
+
+```
+fun maxMinExample() {
+        val simpleList = listOf(1.99, 55.4, 20.0, 99.99, 23.0, 34.2, 88.0, 72.1, 61.2, 43.9)
+        val largestElement = simpleList.maxOrNull()
+        println(largestElement) //99.99
+        val smallestElement = simpleList.minOrNull()
+        println(smallestElement) //1.99
+    }
+```
+
+Output:
+```
+99.99
+1.99
+```
+
+## `maxByOrNull, minByOrNull` - Find max or min element based on custom property
+
+```
+fun maxMinByExample() {
+        val products = listOf(
+            Product("A", 10, 6.90),
+            Product("B", 20, 3.45),
+            Product("C", 30, 1.05)
+        )
+        val productWithHighestPrice = products.maxByOrNull { it -> it.price }
+        println(productWithHighestPrice)
+
+        val productWithLowestPrice = products.minByOrNull { it -> it.price }
+        println(productWithLowestPrice)
+    }
+```
+
+Output:
+```
+Product(name=A, quantity=10, price=6.9)
+Product(name=C, quantity=30, price=1.05)
+```
+
+## `maxWithOrNull` - Find first element having the largest value according to the provided comparator
+
+```
+fun maxWithExample() {
+        //maxWith() returns the first element having the largest value according to the provided [comparator]
+        val productList = listOf(
+            Product("A", 10, 6.90),
+            Product("B", 20, 3.45),
+            Product("C", 30, 1.05),
+            Product("D", 20, 9.05)
+        )
+        val productWithHighestPrice = productList.maxWithOrNull(object : Comparator<Any> {
+            override fun compare(o1: Any?, o2: Any?): Int {
+                val obj1: Product? = o1 as? Product
+                val obj2: Product? = o2 as? Product
+                safeLet(obj1, obj2) { p1, p2 ->
+                    if (p1.price > p2.price) return 1
+                    if (p1.price == p2.price) return 0
+                    else return -1
+                }
+                return -1
+            }
+        })
+
+        println(productWithHighestPrice)
+    }
+
+inline fun <T1 : Any, T2 : Any, R : Any> safeLet(p1: T1?, p2: T2?, block: (T1, T2) -> R?): R? {
+        return if (p1 != null && p2 != null) block(p1, p2) else null
+    }
+```
+
+Output:
+```
+Product(name=D, quantity=20, price=9.05)
+```
