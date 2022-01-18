@@ -366,4 +366,86 @@ All user ages: [1, 15, 10, 32, 14, 45, 9, 16, 18, 19, 27, 24]
 User ages that can drive: [32, 45, 16, 18, 19, 27, 24]
 ```
 
-## 
+## `flatMap` - Flatten Collection
+
+```
+fun mapFlatMapExample() {
+        val dataObjects = listOf(
+            Items(listOf("a", "b", "c")),
+            Items(listOf("1", "2", "3"))
+        )
+
+        //With flatMap, you can "flatten" multiple Data::items into one collection as shown with the items variable.
+        val items: List<String> = dataObjects
+            .flatMap { it.items } //[a, b, c, 1, 2, 3]
+        println(items)
+
+        //Using map, on the other hand, simply results in a list of lists.
+        val items2: List<List<String>> = dataObjects
+            .map { it.items } //[[a, b, c], [1, 2, 3]]
+        println(items2)
+
+        /*FLatten produces the same result as flatMap. So flatMap is a combination of the two functions, map{}
+        and then flatten()*/
+        val nestedCollections: List<String> = dataObjects
+            .map { it.items }
+            .flatten() //[a, b, c, 1, 2, 3]
+        println(nestedCollections)
+    }
+```
+
+Output:
+```
+[a, b, c, 1, 2, 3]
+[[a, b, c], [1, 2, 3]]
+[a, b, c, 1, 2, 3]
+```
+
+## `binarySearch` - Perform search in collection
+
+```
+fun binarySearchExample() {
+        //This example uses the sort extension, so put this after it.
+        val largeIntArray = arrayOf(
+            4,
+            9,
+            2,
+            19,
+            1,
+            3,
+            2,
+            6
+        )
+        //largeIntArray.sort()
+        println("Array = ${largeIntArray.asList()}")
+        println("Index of element 19: ${largeIntArray.binarySearch(19)}")
+    }
+```
+
+Output:
+```
+Array = [4, 9, 2, 19, 1, 3, 2, 6]
+Index of element 19: 3
+```
+
+## `groupBy` - Group elements of a collection based on some condition
+
+```
+fun groupByExample() {
+        val list = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        println(list.groupBy { it % 4 })
+        // {
+        //     1=[1, 5, 9],
+        //     2=[2, 6, 10],
+        //     3=[3, 7],
+        //     0=[4, 8]
+        // }
+    }
+```
+
+Output:
+```
+{1=[1, 5, 9], 2=[2, 6, 10], 3=[3, 7], 0=[4, 8]}
+```
+
+##
