@@ -134,7 +134,6 @@ fun foldExample() {
         /*The difference between fold() & reduce() is that fold() takes an initial value and uses it as the
         accumulated value on the first step, whereas the first step of reduce() uses the first and the second
         elements as operation arguments on the first step.*/
-        println("Inside Fold")
         val numList = listOf(1, 2, 3, 4, 5)
         val result = numList.fold(0, { result, item ->
             result + item
