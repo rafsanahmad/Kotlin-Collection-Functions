@@ -314,4 +314,56 @@ Output:
 [one, two, three, four, five]
 ```
 
+## `union` - Union of collections
+
+```
+fun unionExample() {
+        val listOne = listOf(1, 2, 3, 3, 4, 5, 6)
+        val listTwo = listOf(2, 2, 4, 5, 6, 7, 8)
+        println(listOne.union(listTwo)) // [1, 2, 3, 4, 5, 6, 7, 8]
+    }
+```
+
+Output:
+```
+[1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+## `intersect` - Intersection of collections
+
+```
+fun intersectionExample() {
+        val listOne = listOf(1, 2, 3, 3, 4, 5, 6)
+        val listTwo = listOf(2, 2, 4, 5, 6, 7, 8)
+        println(listOne.intersect(listTwo)) // [2, 4, 5, 6]
+    }
+```
+
+Output:
+```
+[2, 4, 5, 6]
+```
+
+## `map` - Map collection
+
+```
+fun mapExample() {
+        val userAgeStrings =
+            listOf("1", "15", "10", "32", "14", "45", "9", "16", "18", "19", "27", "24")
+        //Simple map function that just converts strings to an int
+        val userAgeInts = userAgeStrings.map { it.toInt() }
+        //A perfect example of the filter feature here
+        val userAgesThatCanDrive = userAgeInts.filter { it >= 16 }
+
+        println("All user ages: $userAgeInts")
+        println("User ages that can drive: $userAgesThatCanDrive")
+    }
+```
+
+Output:
+```
+All user ages: [1, 15, 10, 32, 14, 45, 9, 16, 18, 19, 27, 24]
+User ages that can drive: [32, 45, 16, 18, 19, 27, 24]
+```
+
 ## 
