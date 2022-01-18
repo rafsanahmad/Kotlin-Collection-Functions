@@ -448,4 +448,68 @@ Output:
 {1=[1, 5, 9], 2=[2, 6, 10], 3=[3, 7], 0=[4, 8]}
 ```
 
-##
+## `sorted, sortedDescending` - Sort a collection
+
+```
+fun sortExample() {
+        val unsortedAges = listOf(1, 3, 2, 7, 5, 15, 9, 8, 20, 18, 25)
+
+        //Automatic sorting order is ascending
+        val youngestToOldestAges = unsortedAges.sorted()
+        println("Youngest to oldest ages: $youngestToOldestAges")
+
+        val oldestToYoungestAges = unsortedAges.sortedDescending()
+        println("Oldest to youngest ages: $oldestToYoungestAges")
+        /*Similarly, there are other functions that can be used to sort the collection based on certain conditions.
+         Some of these functions are sortedArray, sortedArrayWith, sortedBy, sortedByDescending,
+         sortedArraydescending, sortedWith, etc.*/
+    }
+```
+
+Output:
+```
+Youngest to oldest ages: [1, 2, 3, 5, 7, 8, 9, 15, 18, 20, 25]
+Oldest to youngest ages: [25, 20, 18, 15, 9, 8, 7, 5, 3, 2, 1]
+```
+
+## `sortedBy` - Sort Collection by custom property
+
+```
+fun sortedByExample() {
+        val products = listOf(
+            Product("A1", 10, 6.90),
+            Product("B1", 20, 3.45),
+            Product("C1", 30, 1.05),
+            Product("D1", 50, 5.05)
+        )
+        val sorted = products.sortedBy { it.price }
+        println(sorted)
+        /*[Product(name=C1, quantity=30, price=1.05),
+        Product(name=B1, quantity=20, price=3.45),
+        Product(name=D1, quantity=50, price=5.05),
+        Product(name=A1, quantity=10, price=6.9)]*/
+    }
+```
+
+Output:
+```
+[Product(name=C1, quantity=30, price=1.05), Product(name=B1, quantity=20, price=3.45), Product(name=D1, quantity=50, price=5.05), Product(name=A1, quantity=10, price=6.9)]
+```
+
+## `reversed, asReversed` - Reverse a collection
+
+```
+fun reverseExample() {
+        val list = listOf(1, 2, 3, 4, 5)
+        println(list.reversed()) // [5, 4, 3, 2, 1]
+        println(list.asReversed()) // [5, 4, 3, 2, 1]
+    }
+```
+
+Output:
+```
+[5, 4, 3, 2, 1]
+[5, 4, 3, 2, 1]
+```
+
+## 
