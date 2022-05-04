@@ -33,6 +33,7 @@ The Kotlin standard library offers a broad variety of functions for performing o
  - [maxOrNull, minOrNull](#maxornull-minornull)
  - [maxByOrNull, minByOrNull](#maxbyornull-minbyornull)
  - [maxWithOrNull](#maxwithornull)
+ - [drop, dropLast, dropWhile, dropLastWhile](#drop-droplast-dropwhile-droplastwhile)
 
 ## Helper Class
 ```
@@ -824,4 +825,31 @@ inline fun <T1 : Any, T2 : Any, R : Any> safeLet(p1: T1?, p2: T2?, block: (T1, T
 Output:
 ```
 Product(name=D, quantity=20, price=9.05)
+```
+
+## `drop, dropLast, dropWhile, dropLastWhile`
+
+Drop elements from sequence.
+
+```
+fun dropExample() {
+        val chars = ('a'..'z').toList()
+        println(chars.drop(23)) // [x, y, z]
+        println(chars.dropLast(23)) // [a, b, c]
+        println(chars.dropWhile { it < 'x' }) // [x, y, z]
+        println(chars.dropLastWhile { it > 'c' }) // [a, b, c]
+
+        val numbers = (1..50).toList()
+        println(numbers.drop(5).take(10).sortedDescending().toList()) //[15, 14, 13, 12, 11, 10, 9, 8, 7, 6]
+    }
+```
+
+Output:
+```
+[x, y, z]
+[a, b, c]
+[x, y, z]
+[a, b, c]
+[15, 14, 13, 12, 11, 10, 9, 8, 7, 6]
+
 ```
